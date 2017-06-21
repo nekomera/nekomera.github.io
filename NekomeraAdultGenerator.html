@@ -1,0 +1,262 @@
+<html>
+<head>
+<style type="text/css">
+.doll container
+{
+	padding: 5px;
+	border: 1px solid black;
+	overflow: auto;
+}
+.imageContainer
+{
+	width:896px;
+	height:1063px;
+	float:left;
+	
+	position:relative;
+}
+.imageContainer img
+{
+	position: absolute;
+}
+</style>
+<!-- the position:relative and position:absolute parts are the most important, the rest is just formatting -->
+</head>
+<body>
+<div class="dollContainer">
+<div class="imageContainer">
+<img src="TealCoatNekomera.png" id="CoatTeal" style="left: 0px; top:0px; display:none"/>
+<img src="RedCoatNekomera.jpg" id="CoatRed" style="left: 0px; top:0px; display:none"/>
+<img src="BlackCoatNekomera.jpg" id="CoatBlack" style="left: 0px; top:0px; display:none"/>
+<img src="YellowCoatNekomera.jpg" id="CoatYellow" style="left: 0px; top:0px; display:none"/>
+<img src="GreenCoatNekomera.jpg" id="CoatGreen" style="left: 0px; top:0px; display:none"/>
+<img src="CrimsonCoatNekomera.png" id="CoatCrimson" style="left: 0px; top:0px; display:none"/>
+<img src="JungleCoatNekomera.png" id="CoatJungle" style="left: 0px; top:0px; display:none"/>
+<img src="OatmealCoatNekomera.png" id="CoatOatmeal" style="left: 0px; top:0px; display:none"/>
+<img src="LimeCoatNekomera.png" id="CoatLime" style="left: 0px; top:0px; display:none"/>
+<img src="GrassyCoatNekomera.png" id="CoatGrassy" style="left: 0px; top:0px; display:none"/>
+<img src="PeachCoatNekomera.png" id="CoatPeach" style="left: 0px; top:0px; display:none"/>
+<img src="ArtichokeCoatNekomera.png" id="CoatArtichoke" style="left: 0px; top:0px; display:none"/>
+<img src="AlabasterCoatNekomera.png" id="CoatAlabaster" style="left: 0px; top:0px; display:none"/>
+<img src="CreamCoatNekomera.png" id="CoatCream" style="left: 0px; top:0px; display:none"/>
+<img src="BlushCoatNekomera.png" id="CoatBlush" style="left: 0px; top:0px; display:none"/>
+<img src="BrickCoatNekomera.png" id="CoatBrick" style="left: 0px; top:0px; display:none"/>
+<img src="CeladonCoatNekomera.png" id="CoatCeladon" style="left: 0px; top:0px; display:none"/>
+<img src="CitrineCoatNekomera.png" id="CoatCitrine" style="left: 0px; top:0px; display:none"/>
+<img src="BrownCoatNekomera.png" id="CoatBrown" style="left: 0px; top:0px; display:none"/>
+<img src="GingerCoatNekomera.png" id="CoatGinger" style="left: 0px; top:0px; display:none"/>
+<img src="MintCoatNekomera.png" id="CoatMint" style="left: 0px; top:0px; display:none"/>
+<img src="TabbyCondaNekomera.png" id="MarkingTabbyCorn" style="left: 0px; top:0px; display:none"/>
+<img src="NekomeraBase.png" id="BasicLineart" style="left: 0px; top:0px; display:none"/>
+</div>
+
+
+ 
+<div class="controlsContainer" style="float:left;">
+1.Coat Color <br>
+<input type="checkbox" id="BCoatRed"><label for="BCoatRed">Red (R)</label>
+<br>
+<input type="checkbox" id="BCoatBlack"><label for="BCoatBlack">Black (B)</label>
+<br>
+<input type="checkbox" id="BCoatYellow"><label for="BCoatYellow">Yellow (Y)</label><br>
+<input type="checkbox" id="BCoatGreen"><label for="BCoatGreen">Green (G)</label><br>
+<br>
+2.Dilution
+<br>
+<input type="checkbox" id="BFadeDilute"><label for="BFadeDilute">Fade (D)</label><br>
+<input type="checkbox" id="BBlueDilute"><label for="BBlueDilute">Blue (b)</label><br>
+3.White Spotting
+<br>
+4. Lineart <br>
+<input type="checkbox" id="BBasicLineart"><label for="BBasicLineart">No Mutations</label><br>
+
+<input type="checkbox" id="bClear"><label for="bClear">CLEAR!</label>
+</div>
+</div>
+<!-- Script tags don't have to be in the same place as the rest of it -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <!-- I use the jQuery library, and this is a good place to get it from -->
+
+<script>
+$(".controlsContainer").change( function () {
+ 
+
+//This is the CLEAR function
+if ($("#bClear").prop("checked"))
+{$("#BCoatRed").prop("checked", false);
+$("#BCoatBlack").prop("checked", false);
+$("#BCoatYellow").prop("checked", false);
+$("#BCoatGreen").prop("checked", false);
+$("#BBasicLineart").prop("checked", false);
+$("#BFadeDilute").prop("checked", false);
+$("#BBlueDilute").prop("checked", false);
+$("#bClear").prop("checked", false);
+}
+
+
+//Only RED is checked
+if ($("#BCoatRed").prop("checked") && ($("#BCoatBlack").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+{$("#CoatRed").show();
+$("#CoatGreen").hide();
+$("#CoatYellow").hide();
+$("#CoatBlack").hide();
+$("#CoatTeal").hide();}
+else
+{$("#CoatRed").hide();}
+
+
+//Only BLACK is checked
+if ($("#BCoatBlack").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+{$("#CoatBlack").show();
+$("#CoatGreen").hide();
+$("#CoatYellow").hide();
+$("#CoatRed").hide();
+$("#CoatTeal").hide();}
+else
+{$("#CoatBlack").hide();}
+
+
+//Only GREEN is checked
+if ($("#BCoatGreen").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatBlack").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+{$("#CoatGreen").show();
+$("#CoatRed").hide();
+$("#CoatYellow").hide();
+$("#CoatBlack").hide();
+$("#CoatTeal").hide();}
+else
+{$("#CoatGreen").hide();}
+
+
+//Only YELLOW is checked
+if ($("#BCoatYellow").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatBlack").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+{$("#CoatYellow").show();
+$("#CoatGreen").hide();
+$("#CoatRed").hide();
+$("#CoatBlack").hide();
+$("#CoatTeal").hide();}
+else
+{$("#CoatYellow").hide();}
+
+
+//RED and BLACK are checked
+if (($("#BCoatRed").prop("checked")) && ($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatCrimson").show();
+$("#CoatRed").hide();
+$("#CoatBlack").hide();}
+else
+{$("#CoatCrimson").hide();}
+
+
+//RED and YELLOW are checked
+if (($("#BCoatRed").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatPeach").show();
+$("#CoatRed").hide();
+$("#CoatYellow").hide();}
+else
+{$("#CoatPeach").hide();}
+
+
+//RED and GREEN are checked
+if (($("#BCoatRed").prop("checked")) && ($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatGrassy").show();
+$("#CoatRed").hide();
+$("#CoatGreen").hide();}
+else
+{$("#CoatGrassy").hide();}
+
+
+//BLACK and GREEN are checked
+if (($("#BCoatBlack").prop("checked")) && ($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatJungle").show();
+$("#CoatBlack").hide();
+$("#CoatGreen").hide();}
+else
+{$("#CoatJungle").hide();}
+
+
+//BLACK and YELLOW are checked
+if (($("#BCoatBlack").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatOatmeal").show();
+$("#CoatBlack").hide();
+$("#CoatYellow").hide();}
+else
+{$("#CoatOatmeal").hide();}
+
+
+//GREEN and YELLOW are checked
+if (($("#BCoatGreen").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+{$("#CoatLime").show();
+$("#CoatGreen").hide();
+$("#CoatYellow").hide();}
+else
+{$("#CoatLime").hide();}
+
+
+//RED and FADE DILUTE are checked
+if (($("#BCoatRed").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatGinger").show();
+$("#CoatRed").hide();}
+else
+{$("#CoatGinger").hide();}
+
+
+//BLACK and FADE DILUTE are checked
+if (($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatBrown").show();
+$("#CoatBlack").hide();}
+else
+{$("#CoatBrown").hide();}
+
+
+//YELLOW and FADE DILUTE are checked
+if (($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatCream").show();
+$("#CoatYellow").hide();}
+else
+{$("#CoatCream").hide();}
+
+
+//GREEN and FADE DILUTE are checked
+if (($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatMint").show();
+$("#CoatGreen").hide();}
+else
+{$("#CoatMint").hide();}
+
+
+//GREEN, YELLOW and FADE DILUTE are checked
+if (($("#BCoatGreen").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatCeladon").show();
+$("#CoatGreen").hide();
+$("#CoatLime").hide();
+$("#CoatYellow").hide();}
+else
+{$("#CoatCeladon").hide();}
+
+
+//GREEN, RED and FADE DILUTE are checked
+if (($("#BCoatGreen").prop("checked")) && ($("#BCoatRed").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatCitrine").show();
+$("#CoatGreen").hide();
+$("#CoatGrassy").hide();
+$("#CoatRed").hide();}
+else
+{$("#CoatCitrine").hide();}
+
+//GREEN, BLACK and FADE DILUTE are checked
+if (($("#BCoatGreen").prop("checked")) && ($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+{$("#CoatArtichoke").show();
+$("#CoatBlack").hide();
+$("#CoatJungle").hide();
+$("#CoatGreen").hide();}
+else
+{$("#CoatArtichoke").hide();}
+
+//NO MUTATIONS is checked
+if ($("#BBasicLineart").prop("checked"))
+{$("#BasicLineart").show();}
+else{$("#BasicLineart").hide();}
+ 
+});
+</script>
+</body>
+</html>
