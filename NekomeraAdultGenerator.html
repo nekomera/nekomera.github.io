@@ -79,13 +79,54 @@
 <script>
 $(".controlsContainer").change( function () {
 
-//Definition block
+//=======================DON'T TOUCH THIS SECTION ==============================
 var red = $("#BCoatRed").prop("checked");
 var black = $("#BCoatBlack").prop("checked");
 var green = $("#BCoatGreen").prop("checked");
 var yellow = $("#BCoatYellow").prop("checked");
 var fadeDilute = $("#BFadeDilute").prop("checked");
 var blueDilute = $("#BBlueDilute").prop("checked");
+
+function showRed() {$("#CoatRed").show();}
+function hideRed() {$("#CoatRed").hide();}
+function showBlack() {$("#CoatBlack").show();}
+function hideBlack() {$("#CoatBlack").hide();}
+function showGreen() {$("#CoatGreen").show();}
+function hideGreen() {$("#CoatGreen").hide();}
+function showYellow() {$("#CoatYellow").show();}
+function hideYellow() {$("#CoatYellow").hide();}
+function showTeal() {$("#CoatTeal").show();}
+function hideTeal() {$("#CoatTeal").hide();}
+function showCrimson() {$("#CoatCrimson").show();}
+function hideCrimson() {$("#CoatCrimson").hide();}
+function showPeach() {$("#CoatPeach").show();}
+function hidePeach() {$("#CoatPeach").hide();}
+function showGrassy() {$("#CoatGrassy").show();}
+function hideGrassy() {$("#CoatGrassy").hide();}
+function showJungle() {$("#CoatJungle").show();}
+function hideJungle() {$("#CoatJungle").hide();}
+function showOatmeal() {$("#CoatOatmeal").show();}
+function hideOatmeal() {$("#CoatOatmeal").hide();}
+function showLime() {$("#CoatLime").show();}
+function hideLime() {$("#CoatLime").hide();}
+function showGinger() {$("#CoatGinger").show();}
+function hideGinger() {$("#CoatGinger").hide();}
+function showBrown() {$("#CoatBrown").show();}
+function hideBrown() {$("#CoatBrown").hide();}
+function showCream() {$("#CoatCream").show();}
+function hideCream() {$("#CoatCream").hide();}
+function showMint() {$("#CoatMint").show();}
+function hideMint() {$("#CoatMint").hide();}
+function showCeladon() {$("#CoatCeladon").show();}
+function hideCeladon() {$("#CoatCeladon").hide();}
+function showCitrine() {$("#CoatCitrine").show();}
+function hideCitrine() {$("#CoatCitrine").hide();}
+function showArtichoke() {$("#CoatArtichoke").show();}
+function hideArtichoke() {$("#CoatArtichoke").hide();}
+
+
+
+//=======================DON'T TOUCH THIS SECTION ==============================
 
  
 
@@ -104,164 +145,137 @@ $("#bClear").prop("checked", false);
 
 //Only RED is checked
 if (red && !(black || green || yellow || fadeDilute || blueDilute)) {
-$("#CoatRed").show();
-$("#CoatGreen").hide();
-$("#CoatYellow").hide();
-$("#CoatBlack").hide();
-$("#CoatTeal").hide();
+showRed();
+} else {
+hideRed();
 }
-else {
-$("#CoatRed").hide();
-}
-
 
 
 //Only BLACK is checked
-if (black && !(red || green || yellow || fadeDilute || blueDilute))
-{$("#CoatBlack").show();
-$("#CoatGreen").hide();
-$("#CoatYellow").hide();
-$("#CoatRed").hide();
-$("#CoatTeal").hide();}
-else
-{$("#CoatBlack").hide();}
+if (black && !(red || green || yellow || fadeDilute || blueDilute)) {
+showBlack();
+} else {
+hideBlack();
+}
 
 
 //Only GREEN is checked
-if (green && !(red || black || yellow || fadeDilute || blueDilute))
-{$("#CoatGreen").show();
-$("#CoatRed").hide();
-$("#CoatYellow").hide();
-$("#CoatBlack").hide();
-$("#CoatTeal").hide();}
-else
-{$("#CoatGreen").hide();}
+if (green && !(red || black || yellow || fadeDilute || blueDilute)) {
+showGreen();
+} else {
+hideGreen();
+}
 
 
 //Only YELLOW is checked
-if (yellow && !(red || black || green || fadeDilute || blueDilute))
-{$("#CoatYellow").show();
-$("#CoatGreen").hide();
-$("#CoatRed").hide();
-$("#CoatBlack").hide();
-$("#CoatTeal").hide();}
-else
-{$("#CoatYellow").hide();}
+if (yellow && !(red || black || green || fadeDilute || blueDilute)) {
+showYellow();
+} else {
+hideYellow();
+}
 
 
 //RED and BLACK are checked
-if (red && black && !(green || yellow || fadeDilute || blueDilute))
-{$("#CoatCrimson").show();
-$("#CoatRed").hide();
-$("#CoatBlack").hide();}
-else
-{$("#CoatCrimson").hide();}
+if (red && black && !(green || yellow || fadeDilute || blueDilute)) {
+showCrimson();
+} else {
+hideCrimson();
+}
 
 
 //RED and YELLOW are checked
-if (red && yellow && !(red || black || fadeDilute || blueDilute))
-{$("#CoatPeach").show();
-$("#CoatRed").hide();
-$("#CoatYellow").hide();}
-else
-{$("#CoatPeach").hide();}
+if (red && yellow && !(red || black || fadeDilute || blueDilute)) {
+showPeach();
+} else {
+hidePeach();
+}
 
 
 //RED and GREEN are checked
-if (red && green && !(black || yellow || fadeDilute || blueDilute))
-{$("#CoatGrassy").show();
-$("#CoatRed").hide();
-$("#CoatGreen").hide();}
-else
-{$("#CoatGrassy").hide();}
+if (red && green && !(black || yellow || fadeDilute || blueDilute)) {
+showGrassy();
+} else {
+hideGrassy();
+}
 
 
 //BLACK and GREEN are checked
-if (black && green && !(red || yellow || fadeDilute || blueDilute))
-{$("#CoatJungle").show();
-$("#CoatBlack").hide();
-$("#CoatGreen").hide();}
-else
-{$("#CoatJungle").hide();}
+if (black && green && !(red || yellow || fadeDilute || blueDilute)) {
+showJungle(); 
+} else {
+hideJungle();
+}
 
 
 //BLACK and YELLOW are checked
-if (black && yellow && !(red || green || fadeDilute || blueDilute))
-{$("#CoatOatmeal").show();
-$("#CoatBlack").hide();
-$("#CoatYellow").hide();}
-else
-{$("#CoatOatmeal").hide();}
+if (black && yellow && !(red || green || fadeDilute || blueDilute)) {
+showOatmeal();
+} else {
+hideOatmeal();
+}
 
 
 //GREEN and YELLOW are checked
-if (green && yellow && !(red || black || fadeDilute || blueDilute))
-{$("#CoatLime").show();
-$("#CoatGreen").hide();
-$("#CoatYellow").hide();}
-else
-{$("#CoatLime").hide();}
+if (green && yellow && !(red || black || fadeDilute || blueDilute)) {
+showLime();
+} else {
+hideLime();
+}
 
 
 //RED and FADE DILUTE are checked
-if (red && fadeDilute && !(black || yellow || green || blueDilute))
-{$("#CoatGinger").show();
-$("#CoatRed").hide();}
-else
-{$("#CoatGinger").hide();}
+if (red && fadeDilute && !(black || yellow || green || blueDilute)) {
+showGinger();
+} else {
+hideGinger();
+}
 
 
 //BLACK and FADE DILUTE are checked
-if (black && fadeDilute && !(red || green || yellow || blueDilute))
-{$("#CoatBrown").show();
-$("#CoatBlack").hide();}
-else
-{$("#CoatBrown").hide();}
+if (black && fadeDilute && !(red || green || yellow || blueDilute)) {
+showBrown();
+} else {
+hideBrown();
+}
 
 
 //YELLOW and FADE DILUTE are checked
-if (yellow && fadeDilute && !(red || green || black || blueDilute))
-{$("#CoatCream").show();
-$("#CoatYellow").hide();}
-else
-{$("#CoatCream").hide();}
+if (yellow && fadeDilute && !(red || green || black || blueDilute)) {
+showCream();
+} else {
+hideCream();
+}
 
 
 //GREEN and FADE DILUTE are checked
-if (green && fadeDilute && !(red || black || yellow || blueDilute))
-{$("#CoatMint").show();
-$("#CoatGreen").hide();}
-else
-{$("#CoatMint").hide();}
+if (green && fadeDilute && !(red || black || yellow || blueDilute)) {
+showMint();
+} else {
+hideMint();
+}
 
 
 //GREEN, YELLOW and FADE DILUTE are checked
-if (green && yellow && fadeDilute && !(red || black || blueDilute))
-{$("#CoatCeladon").show();
-$("#CoatGreen").hide();
-$("#CoatLime").hide();
-$("#CoatYellow").hide();}
-else
-{$("#CoatCeladon").hide();}
+if (green && yellow && fadeDilute && !(red || black || blueDilute)) {
+showCeladon();
+} else {
+hideCeladon(); 
+}
 
 
 //GREEN, RED and FADE DILUTE are checked
-if (green && red && fadeDilute && !(black || yellow || blueDilute))
-{$("#CoatCitrine").show();
-$("#CoatGreen").hide();
-$("#CoatGrassy").hide();
-$("#CoatRed").hide();}
-else
-{$("#CoatCitrine").hide();}
+if (green && red && fadeDilute && !(black || yellow || blueDilute)) {
+showCitrine();
+} else {
+hideCitrine();
+}
 
 //GREEN, BLACK and FADE DILUTE are checked
-if (green && black && fadeDilute && !(red || yellow || blueDilute))
-{$("#CoatArtichoke").show();
-$("#CoatBlack").hide();
-$("#CoatJungle").hide();
-$("#CoatGreen").hide();}
-else
-{$("#CoatArtichoke").hide();}
+if (green && black && fadeDilute && !(red || yellow || blueDilute)) {
+showArtichoke();
+} else {
+hideArtichoke();
+}
 
 //NO MUTATIONS is checked
 if ($("#BBasicLineart").prop("checked"))
