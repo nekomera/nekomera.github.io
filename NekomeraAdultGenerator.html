@@ -78,6 +78,15 @@
 
 <script>
 $(".controlsContainer").change( function () {
+
+//Definition block
+var red = $("#BCoatRed").prop("checked");
+var black = $("#BCoatBlack").prop("checked");
+var green = $("#BCoatGreen").prop("checked");
+var yellow = $("#BCoatYellow").prop("checked");
+var fadeDilute = $("#BFadeDilute").prop("checked");
+var blueDilute = $("#BBlueDilute").prop("checked");
+
  
 
 //This is the CLEAR function
@@ -94,18 +103,21 @@ $("#bClear").prop("checked", false);
 
 
 //Only RED is checked
-if ($("#BCoatRed").prop("checked") && ($("#BCoatBlack").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
-{$("#CoatRed").show();
+if (red && !(black || green || yellow || fadeDilute || blueDilute)) {
+$("#CoatRed").show();
 $("#CoatGreen").hide();
 $("#CoatYellow").hide();
 $("#CoatBlack").hide();
-$("#CoatTeal").hide();}
-else
-{$("#CoatRed").hide();}
+$("#CoatTeal").hide();
+}
+else {
+$("#CoatRed").hide();
+}
+
 
 
 //Only BLACK is checked
-if ($("#BCoatBlack").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+if (black && !(red || green || yellow || fadeDilute || blueDilute))
 {$("#CoatBlack").show();
 $("#CoatGreen").hide();
 $("#CoatYellow").hide();
@@ -116,7 +128,7 @@ else
 
 
 //Only GREEN is checked
-if ($("#BCoatGreen").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatBlack").prop("checked") || $("#BCoatYellow").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+if (green && !(red || black || yellow || fadeDilute || blueDilute))
 {$("#CoatGreen").show();
 $("#CoatRed").hide();
 $("#CoatYellow").hide();
@@ -127,7 +139,7 @@ else
 
 
 //Only YELLOW is checked
-if ($("#BCoatYellow").prop("checked") && ($("#BCoatRed").prop("checked") || $("#BCoatGreen").prop("checked") || $("#BCoatBlack").prop("checked")) == false && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked")) == false)
+if (yellow && !(red || black || green || fadeDilute || blueDilute))
 {$("#CoatYellow").show();
 $("#CoatGreen").hide();
 $("#CoatRed").hide();
@@ -138,7 +150,7 @@ else
 
 
 //RED and BLACK are checked
-if (($("#BCoatRed").prop("checked")) && ($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (red && black && !(green || yellow || fadeDilute || blueDilute))
 {$("#CoatCrimson").show();
 $("#CoatRed").hide();
 $("#CoatBlack").hide();}
@@ -147,7 +159,7 @@ else
 
 
 //RED and YELLOW are checked
-if (($("#BCoatRed").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (red && yellow && !(red || black || fadeDilute || blueDilute))
 {$("#CoatPeach").show();
 $("#CoatRed").hide();
 $("#CoatYellow").hide();}
@@ -156,7 +168,7 @@ else
 
 
 //RED and GREEN are checked
-if (($("#BCoatRed").prop("checked")) && ($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (red && green && !(black || yellow || fadeDilute || blueDilute))
 {$("#CoatGrassy").show();
 $("#CoatRed").hide();
 $("#CoatGreen").hide();}
@@ -165,7 +177,7 @@ else
 
 
 //BLACK and GREEN are checked
-if (($("#BCoatBlack").prop("checked")) && ($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (black && green && !(red || yellow || fadeDilute || blueDilute))
 {$("#CoatJungle").show();
 $("#CoatBlack").hide();
 $("#CoatGreen").hide();}
@@ -174,7 +186,7 @@ else
 
 
 //BLACK and YELLOW are checked
-if (($("#BCoatBlack").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (black && yellow && !(red || green || fadeDilute || blueDilute))
 {$("#CoatOatmeal").show();
 $("#CoatBlack").hide();
 $("#CoatYellow").hide();}
@@ -183,7 +195,7 @@ else
 
 
 //GREEN and YELLOW are checked
-if (($("#BCoatGreen").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked") || $("#BBlueDilute").prop("checked") )== false)
+if (green && yellow && !(red || black || fadeDilute || blueDilute))
 {$("#CoatLime").show();
 $("#CoatGreen").hide();
 $("#CoatYellow").hide();}
@@ -192,7 +204,7 @@ else
 
 
 //RED and FADE DILUTE are checked
-if (($("#BCoatRed").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (red && fadeDilute && !(black || yellow || green || blueDilute))
 {$("#CoatGinger").show();
 $("#CoatRed").hide();}
 else
@@ -200,7 +212,7 @@ else
 
 
 //BLACK and FADE DILUTE are checked
-if (($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (black && fadeDilute && !(red || green || yellow || blueDilute))
 {$("#CoatBrown").show();
 $("#CoatBlack").hide();}
 else
@@ -208,7 +220,7 @@ else
 
 
 //YELLOW and FADE DILUTE are checked
-if (($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (yellow && fadeDilute && !(red || green || black || blueDilute))
 {$("#CoatCream").show();
 $("#CoatYellow").hide();}
 else
@@ -216,7 +228,7 @@ else
 
 
 //GREEN and FADE DILUTE are checked
-if (($("#BCoatGreen").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (green && fadeDilute && !(red || black || yellow || blueDilute))
 {$("#CoatMint").show();
 $("#CoatGreen").hide();}
 else
@@ -224,7 +236,7 @@ else
 
 
 //GREEN, YELLOW and FADE DILUTE are checked
-if (($("#BCoatGreen").prop("checked")) && ($("#BCoatYellow").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (green && yellow && fadeDilute && !(red || black || blueDilute))
 {$("#CoatCeladon").show();
 $("#CoatGreen").hide();
 $("#CoatLime").hide();
@@ -234,7 +246,7 @@ else
 
 
 //GREEN, RED and FADE DILUTE are checked
-if (($("#BCoatGreen").prop("checked")) && ($("#BCoatRed").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (green && red && fadeDilute && !(black || yellow || blueDilute))
 {$("#CoatCitrine").show();
 $("#CoatGreen").hide();
 $("#CoatGrassy").hide();
@@ -243,7 +255,7 @@ else
 {$("#CoatCitrine").hide();}
 
 //GREEN, BLACK and FADE DILUTE are checked
-if (($("#BCoatGreen").prop("checked")) && ($("#BCoatBlack").prop("checked")) && ($("#BFadeDilute").prop("checked")) && ($("#BBlueDilute").prop("checked") == false))
+if (green && black && fadeDilute && !(red || yellow || blueDilute))
 {$("#CoatArtichoke").show();
 $("#CoatBlack").hide();
 $("#CoatJungle").hide();
